@@ -1,0 +1,7 @@
+Gör en ny Console App som är .Net Core 3.0
+View->Other Windows->Package Manager Console
+i Package Manager Console kör följande kommandon:
+Install-Package Microsoft.EntityFrameworkCore
+Install-Package Microsoft.EntityFrameworkCore.SqlServer
+Install-Package Microsoft.EntityFrameworkcore.SqlServer.Design
+Install-Package Microsoft.EntityFrameworkcore.Tools
