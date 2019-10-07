@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCT", "EFCT\EFCT.csproj", "{8BC473A9-0072-49A4-89FD-50A10F0C0B03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCT", "EFCT\EFCT.csproj", "{8BC473A9-0072-49A4-89FD-50A10F0C0B03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{46EE0F4A-84EB-480E-9A60-2ED3566E278A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataInterface", "DataInterface\DataInterface.csproj", "{AE9F3DE6-64B9-4E41-AE17-1EACB0DDC4B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{8BC473A9-0072-49A4-89FD-50A10F0C0B03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BC473A9-0072-49A4-89FD-50A10F0C0B03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BC473A9-0072-49A4-89FD-50A10F0C0B03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46EE0F4A-84EB-480E-9A60-2ED3566E278A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46EE0F4A-84EB-480E-9A60-2ED3566E278A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46EE0F4A-84EB-480E-9A60-2ED3566E278A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46EE0F4A-84EB-480E-9A60-2ED3566E278A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE9F3DE6-64B9-4E41-AE17-1EACB0DDC4B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE9F3DE6-64B9-4E41-AE17-1EACB0DDC4B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE9F3DE6-64B9-4E41-AE17-1EACB0DDC4B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE9F3DE6-64B9-4E41-AE17-1EACB0DDC4B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
