@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EFCT
+namespace DataInterface
 {
     /*
     Vi har kurser i klassen Course och studenter i klassen Student

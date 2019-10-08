@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Collections.Generic;
 using System;
+using DataInterface;
+using DataAccess;
 
 namespace EFCT
 {
@@ -9,6 +11,8 @@ namespace EFCT
     {
         static void Main(string[] args)
         {
+            ITeacherManager teacherManager = new TeacherManager();
+            teacherManager.AddTeacher("Kalle");
             // schoolContext är vår anslutning till databasen
             // när vi har objekt som behöver göra extra arbete för att 
             // "avsluta" sig själva behöver vi ha dem i ett using-block
@@ -16,6 +20,7 @@ namespace EFCT
             // att stängas korrekt när variabeln går ur scope.
             using (var schoolContext = new SchoolContext())
             {
+               
                 // vi hittar på några kurser
                 var course = new Course();
                 course.Name = "Kurs"; // Kurserna har ett namn

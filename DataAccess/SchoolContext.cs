@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DataInterface;
+using Microsoft.EntityFrameworkCore;
 
-namespace EFCT
+namespace DataAccess
 {
     // En kontext motsvarar ungefär en databas
     // Lägg märke till att vi ärver från DbContext genom att skriva : 
