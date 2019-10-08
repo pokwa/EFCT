@@ -70,7 +70,7 @@ namespace EFCT
                 foreach (var studentInClass in studentsInCourseOne)
                     Console.WriteLine(studentInClass.Name);
 
-                Console.ReadLine();
+                
                
                 // Nästa sätt att läsa ut data är detta, kallat Method Chaining
                 // denna motsvarar också SELECT, och gör precis samma sak som
