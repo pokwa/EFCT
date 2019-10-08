@@ -13,6 +13,7 @@ namespace EFCT
         {
             ITeacherManager teacherManager = new TeacherManager();
             teacherManager.AddTeacher("Kalle");
+            Console.ReadLine();
             // schoolContext är vår anslutning till databasen
             // när vi har objekt som behöver göra extra arbete för att 
             // "avsluta" sig själva behöver vi ha dem i ett using-block
