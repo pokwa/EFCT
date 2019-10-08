@@ -63,7 +63,7 @@ namespace EFCT
                 var studentsInCourseOne = (from s in schoolContext.Students
                                            join c in schoolContext.Courses
                                            on s.CourseID equals c.CourseID
-                                           where c.Name == "Kurs3"
+                                           where c.Name == "Kurs5"
                                            select s);
 
                 // Sen loopar vi igenom listan vi läste ut ur databasen vi 
