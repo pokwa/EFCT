@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataInterface
@@ -14,12 +15,7 @@ namespace DataInterface
 
         public int Age { get; set; }
 
-        // Dessa två fält är för vår Foreign Key
-        // Fältet CourseID bör vi aldrig sätta!
-        public int CourseID { get; set; }
-        // ... det sätts istället genom att vi tilldelar ett värde till denna 
-        // variabel. Då kommer CourseID att uppdateras automatiskt. På så sätt
-        // kopplar vi ihop studenter och kurser
-        public Course Course { get; set; }
+        public ICollection<StudentCourse> StudentCourses { get; set; }
+        public ICollection<ExamAnswer> ExamAnswers { get; set; }
     }
 }
