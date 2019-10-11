@@ -5,14 +5,14 @@ using System.Text;
 
 namespace DataAccess
 {
-    public class CourseManager
+    public class CourseManager : ICourseManager
     {
-        public void AddCourse(string name)
+        public void AddCourse(string courseName)
         {
-            using(var schoolContext  = new SchoolContext())
+            using(var schoolContext = new SchoolContext())
             {
                 var course = new Course();
-                course.Name = name;
+                course.Name = courseName;
                 schoolContext.Courses.Add(course);
                 schoolContext.SaveChanges();
             }
