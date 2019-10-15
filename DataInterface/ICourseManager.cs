@@ -6,6 +6,6 @@ namespace DataInterface
 {
     public interface ICourseManager
     {
-        public void AddCourse(string courseName);
+        public void AddCourse(string courseName, string teacherName);
     }
 }

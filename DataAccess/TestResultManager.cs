@@ -10,7 +10,7 @@ namespace DataAccess
         public void AddAnswer(TestResult testResult, AnswerAlternative answerAlternative, bool isCorrect)
         {
             var context = new SchoolContext();
-            var testResultAnswer = new TestResultAnswers();
+            var testResultAnswer = new TestResultAnswer();
             testResultAnswer.AnswerAlternativeID = answerAlternative.AnswerAlternativeID;
             testResultAnswer.IsCorrect = answerAlternative.IsCorrect;
             testResultAnswer.TestResultID = testResult.TestResultID;
@@ -22,6 +22,7 @@ namespace DataAccess
         {
             var context = new SchoolContext();
             var testResult = new TestResult();
+            testResult.ExamAnswerID = examAnswer.ExamAnswerID;
             context.TestResults.Add(testResult);
             context.SaveChanges();
             return testResult;

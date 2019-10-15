@@ -17,6 +17,6 @@ namespace DataInterface
         public int ExamAnswerID { get; set; }
         public ExamAnswer ExamAnswer {get; set;}
 
-        public ICollection<TestResultAnswers> TestResultAnswers { get; set; }
+        public ICollection<TestResultAnswer> TestResultAnswers { get; set; }
     }
 }

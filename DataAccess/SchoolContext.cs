@@ -39,6 +39,12 @@ namespace DataAccess
                     )));
             foreach(var fk in studentCourseFk)
                 fk.DeleteBehavior = DeleteBehavior.Restrict;
+
+            var testResultAnswersTestResult = modelBuilder.Model.GetEntityTypes().SelectMany(
+                e => e.GetForeignKeys().Where(
+                    fk => fk.DeclaringEntityType.ClrType.Name == "TestResultAnswer" &&
+                    fk.DependentToPrincipal.ClrType.Name == "TestResult")).First();
+            testResultAnswersTestResult.DeleteBehavior = DeleteBehavior.Restrict;
         }
         // Ett DbSet motsvarar ungefär en tabell. DbSet är en Generic Type, dvs vi skriver
         // en typ till innanför <> efter DbSet. Denna typ är den som motsvarar en rad i tabellen
@@ -55,6 +61,6 @@ namespace DataAccess
         public DbSet<Question> Questions { get; set; }
         public DbSet<StudentCourse> StudentCourses { get; set; }
         public DbSet<TestResult> TestResults { get; set; }
-        public DbSet<TestResultAnswers> TestResultAnswers { get; set; }
+        public DbSet<TestResultAnswer> TestResultAnswers { get; set; }
     }
 }

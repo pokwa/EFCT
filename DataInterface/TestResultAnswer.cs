@@ -6,11 +6,11 @@ using System.Text;
 
 namespace DataInterface
 {
-    public class TestResultAnswers
+    public class TestResultAnswer
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int TestResultAnswersID { get; set; }
+        public int TestResultAnswerID { get; set; }
 
         public int TestResultID { get; set; }
         public TestResult TestResult { get; set; }
