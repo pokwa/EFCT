@@ -1,17 +1,21 @@
 ﻿using DataAccess;
 using DataInterface;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace EFCT
 {
     public class ExamGrader
     {
-        public void GradeExam(ExamAnswer examAnswer)
+        private ITestResultManager testResultManager;
+        private IExamAnswerManager examAnswerManager;
+        public ExamGrader(ITestResultManager testResultManager, IExamAnswerManager examAnswerManager)
         {
-            ITestResultManager testResultManager = new TestResultManager();
+            this.testResultManager = testResultManager;
+            this.examAnswerManager = examAnswerManager;
+        }
+        public void GradeExam(string studentName, string courseName)
+        {
+            var examAnswer = examAnswerManager.GetAnswer(studentName, courseName);
             var testResult = testResultManager.AddTestResult(examAnswer);
             int correct = 0;
             int total = 0;
@@ -26,7 +30,7 @@ namespace EFCT
                     correct++;
                 total++;
             }
-            testResultManager.SetTotalScore(testResult, (decimal)correct / (decimal)total);
+            testResultManager.SetTotalScore(testResult, (decimal)correct / total);
         }
     }
 }

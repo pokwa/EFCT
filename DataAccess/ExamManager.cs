@@ -9,7 +9,7 @@ namespace DataAccess
     {
         public AnswerAlternative AddAnswerOption(Question question, string text, bool isCorrect)
         {
-            var context = new SchoolContext();
+            using var context = new SchoolContext();
             var answerAlternative = new AnswerAlternative();
             answerAlternative.AnswerText = text;
             answerAlternative.IsCorrect = isCorrect;
@@ -22,7 +22,7 @@ namespace DataAccess
         public Exam AddExam(string courseName, decimal fractionOfGrade)
         {
             var courseManager = new CourseManager();
-            var context = new SchoolContext();
+            using var context = new SchoolContext();
             var exam = new Exam();
             exam.CourseID = courseManager.GetCourse(courseName).CourseID;
             exam.FractionOfGrade = fractionOfGrade;
