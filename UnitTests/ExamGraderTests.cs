@@ -15,22 +15,20 @@ namespace UnitTests
         public void TestExamGraderCorrectAnswer()
         {
             ExamAnswer answer = CreateExameAnswer(1, 0);
-
             var testResultManager = GradeExam(answer);
-
-            testResultManager.Verify(c => c.SetTotalScore(It.IsAny<DataInterface.TestResult>(),
-                It.Is<decimal>(m => m == 1)), Times.Once());
+            testResultManager.Verify(c => 
+                c.SetTotalScore(It.IsAny<DataInterface.TestResult>(), It.Is<decimal>(m => m == 1)), 
+                Times.Once());
         }
 
         [TestMethod]
         public void TestExamGraderOneCorrectOneIncorrectAnswer()
         {
             ExamAnswer answer = CreateExameAnswer(1, 1);
-
             var testResultManager = GradeExam(answer);
-
-            testResultManager.Verify(c => c.SetTotalScore(It.IsAny<DataInterface.TestResult>(),
-                It.Is<decimal>(m => m == 0.5m)), Times.Once());
+            testResultManager.Verify(c => 
+                c.SetTotalScore(It.IsAny<DataInterface.TestResult>(),  It.Is<decimal>(m => m == 0.5m)), 
+                Times.Once());
         }
 
         private static Mock<ITestResultManager> GradeExam(ExamAnswer answer)
@@ -86,10 +84,8 @@ namespace UnitTests
         {
             var answerAlternatives = new List<AnswerAlternative>();
             CreateOneAnswerAlternative(i < correct, answerAlternatives);
-            
             if (i >= correct)
                 CreateOneAnswerAlternative(true, answerAlternatives);
-
             return answerAlternatives;
         }
 
