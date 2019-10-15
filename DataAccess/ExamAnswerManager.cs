@@ -30,7 +30,7 @@ namespace DataAccess
             context.SaveChanges();
         }
 
-        public ExamAnswer GetAnswer(string studentName, string courseName)
+        public ExamAnswer GetAnswer(string studentName, string courseName, int nth)
         { 
             var context = new SchoolContext();
 
@@ -39,7 +39,8 @@ namespace DataAccess
              join c in context.Courses
              on e.CourseID equals c.CourseID
              where c.Name == courseName
-             select e).First();
+             orderby e.ExamID ascending
+             select e).Skip(nth).First();
 
             var studentID = (new StudentManager()).GetStudentByName(studentName).StudentID;
             var examAnswer =

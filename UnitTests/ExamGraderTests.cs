@@ -39,7 +39,7 @@ namespace UnitTests
             var testResultManager = CreateTestResultManagerMock();
 
             var examGrader = new ExamGrader(testResultManager.Object, examManagerMock.Object);
-            examGrader.GradeExam("A", "B");
+            examGrader.GradeExam("A", "B", 0);
             return testResultManager;
         }
 
@@ -55,7 +55,7 @@ namespace UnitTests
         {
             var examManagerMock = new Mock<IExamAnswerManager>();
             examManagerMock.Setup(m =>
-                m.GetAnswer(It.IsAny<string>(), It.IsAny<string>()))
+                m.GetAnswer(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<int>()))
                 .Returns(answer);
             return examManagerMock;
         }

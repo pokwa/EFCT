@@ -13,9 +13,9 @@ namespace EFCT
             this.testResultManager = testResultManager;
             this.examAnswerManager = examAnswerManager;
         }
-        public void GradeExam(string studentName, string courseName)
+        public void GradeExam(string studentName, string courseName, int nth)
         {
-            var examAnswer = examAnswerManager.GetAnswer(studentName, courseName);
+            var examAnswer = examAnswerManager.GetAnswer(studentName, courseName, nth);
             var testResult = testResultManager.AddTestResult(examAnswer);
             int correct = 0;
             int total = 0;
