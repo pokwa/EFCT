@@ -1,5 +1,5 @@
 ﻿using DataInterface;
-using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 
@@ -15,6 +15,16 @@ namespace DataAccess
                 course.Name = courseName;
                 schoolContext.Courses.Add(course);
                 schoolContext.SaveChanges();
+            }
+        }
+
+        public Course GetCourse(string courseName)
+        {
+            using (var schoolContext = new SchoolContext())
+            {
+                return (from c in schoolContext.Courses
+                        where c.Name == courseName
+                        select c).First();
             }
         }
     }
