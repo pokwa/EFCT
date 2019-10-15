@@ -1,5 +1,7 @@
 ﻿using DataInterface;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
+using System.Linq;
 
 namespace DataAccess
 {
@@ -24,11 +26,35 @@ namespace DataAccess
             // vilken databas den ska prata med
             optionsBuilder.UseSqlServer(connectionString);
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            
+            var studentCourseFk = modelBuilder.Model.GetEntityTypes().SelectMany(
+                e => e.GetForeignKeys().Where(
+                    fk => fk.DeclaringEntityType.ClrType.Name == "ExamQuestionAnswer" &&
+                    (
+                    fk.DependentToPrincipal.ClrType.Name == "ExamAnswer" ||
+                    fk.DependentToPrincipal.ClrType.Name == "Question"
+                    )));
+            foreach(var fk in studentCourseFk)
+                fk.DeleteBehavior = DeleteBehavior.Restrict;
+        }
         // Ett DbSet motsvarar ungefär en tabell. DbSet är en Generic Type, dvs vi skriver
         // en typ till innanför <> efter DbSet. Denna typ är den som motsvarar en rad i tabellen
         // Detta kommer att bli en tabell som heter Students
         public DbSet<Student> Students { get; set; }
+        public DbSet<Teacher> Teachers { get; set; }
         // Här är en tabell till
         public DbSet<Course> Courses { get; set; }
+        public DbSet<AnswerAlternative> AnswerAlternatives { get; set; }
+        public DbSet<Exam> Exams { get; set; }
+        public DbSet<ExamAnswer> ExamAnswers { get; set; }
+        public DbSet<ExamQuestionAnswer> ExamQuestionAnswers { get; set; }
+        public DbSet<Grade> Grades { get; set; }
+        public DbSet<Question> Questions { get; set; }
+        public DbSet<StudentCourse> StudentCourses { get; set; }
+        public DbSet<TestResult> TestResults { get; set; }
+        public DbSet<TestResultAnswers> TestResultAnswers { get; set; }
     }
 }
