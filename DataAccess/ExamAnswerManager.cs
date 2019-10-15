@@ -48,11 +48,9 @@ namespace DataAccess
                     ea.StudentID == studentID).
                     Include(ea => ea.Exam)
                         .ThenInclude(e => e.Questions)
+                            .ThenInclude(q => q.AnswerAlternatives)
                     .Include(ea => ea.ExamQuestionAnswers)
-                        .ThenInclude(qa => qa.AnswerAlternative)
-                    .Include(ea => ea.Exam)
-                        .ThenInclude(ex => ex.Questions)
-                            .ThenInclude(q => q.AnswerAlternatives);
+                        .ThenInclude(qa => qa.AnswerAlternative);
               
             return examAnswer.FirstOrDefault();
         }

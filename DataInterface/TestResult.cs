@@ -14,6 +14,9 @@ namespace DataInterface
 
         public decimal Score { get; set; }
 
+        public int ExamAnswerID { get; set; }
+        public ExamAnswer ExamAnswer {get; set;}
+
         public ICollection<TestResultAnswers> TestResultAnswers { get; set; }
     }
 }
