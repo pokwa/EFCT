@@ -6,15 +6,16 @@ using System.Text;
 
 namespace DataInterface
 {
-    public class Grade
+    public class GradeLimit
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int GradeID { get; set; }
+        public int GradeLimitID { get; set; }
 
-        public string GradeNumber { get; set; }
+        public decimal Limit { get; set; }
+        public string GradeLetter { get; set; }
 
-        public int StudentCourseID { get; set; }
-        public StudentCourse StudentCourse { get; set; }
+        public int CourseID { get; set; }
+        public Course Course { get; set; }
     }
 }

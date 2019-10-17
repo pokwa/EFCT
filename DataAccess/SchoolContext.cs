@@ -62,5 +62,7 @@ namespace DataAccess
         public DbSet<StudentCourse> StudentCourses { get; set; }
         public DbSet<TestResult> TestResults { get; set; }
         public DbSet<TestResultAnswer> TestResultAnswers { get; set; }
+
+        public DbSet<GradeLimit> GradeLimits { get; set; }
     }
 }

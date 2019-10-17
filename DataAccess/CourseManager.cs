@@ -32,5 +32,18 @@ namespace DataAccess
                         select c).First();
             }
         }
+
+        public List<Student> GetStudentsInCourse(string courseName)
+        {
+            using var context = new SchoolContext();
+            return (from s in context.Students
+                    join sc in context.StudentCourses
+                    on s.StudentID equals sc.StudentID
+                    join c in context.Courses
+                    on sc.CourseID equals c.CourseID
+                    where c.Name == courseName
+                    select s
+                ).ToList();
+        }
     }
 }

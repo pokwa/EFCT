@@ -9,5 +9,6 @@ namespace DataInterface
         TestResult AddTestResult(ExamAnswer examAnswer);
         void AddAnswer(TestResult testResult, AnswerAlternative answerAlternative, bool isCorrect);
         void SetTotalScore(TestResult testResult, decimal v);
+        List<TestResult> GetAllTestResultsForOneStudentAndOneCourse(string courseName, string name);
     }
 }
